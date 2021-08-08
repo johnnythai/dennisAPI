@@ -9,14 +9,6 @@ Django Celery to handle multiple consumer connections.
 2. ALPACA_SECRET_KEY
 3. DJANGO_SECRET_KEY
 
-#### Apps
-| App               |                               |
-|:------------------|:------------------------------|
-|**alpaca**         | Alpaca Trade                  |
-|**users**          | Create, Update, Delete users               |
-
-
-
 #### General
 |                   | Endpoint                    | Result                     |
 |:------------------|:----------------------------|:---------------------------|
