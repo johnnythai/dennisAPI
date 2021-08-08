@@ -1,5 +1,5 @@
 ### Overview
-Django REST framework. Asynchronous web server.
+Django REST framework. Asynchronous web server. Websocket.
 Consumes Alpaca Trade API for account info, market data, positions, transaction history, etc.
 Streams market data with Django Channels, websocket server, and Alpaca Trade Websocket.
 Django Celery to handle multiple consumer connections.
@@ -8,6 +8,14 @@ Django Celery to handle multiple consumer connections.
 1. ALPACA_API_KEY
 2. ALPACA_SECRET_KEY
 3. DJANGO_SECRET_KEY
+
+#### Apps
+|                   |                               |
+|:------------------|:------------------------------|
+|**alpaca**         | Alpaca Trade                  |
+|**users**          | Create, Update, Delete users  |
+
+
 
 #### General
 |                   | Endpoint                    | Result                     |
