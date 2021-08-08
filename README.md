@@ -30,3 +30,8 @@ Django Celery to handle multiple consumer connections.
 |**Portfolio**      | GET /api/portfolio/  | Alpaca portfolio history   |
 |**Activities**     | GET /api/activities/ | Alpaca account activities  |
 |**Market Clock**   | GET /api/clock/      | Market Clock               |
+
+#### TODO
+1. Historic Data
+2. Buy/Sell Order, Order Type, Time in Force
+3. Order History
