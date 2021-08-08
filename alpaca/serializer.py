@@ -1,0 +1,122 @@
+from rest_framework import serializers
+from rest_framework.renderers import JSONRenderer
+from django.utils import timezone
+from django.contrib.postgres.fields import ArrayField
+from django.db import models
+
+
+class AccountSerializer(serializers.Serializer):
+    id = serializers.CharField(read_only=True)
+    account_number = serializers.CharField(max_length=50)
+    status = serializers.CharField(max_length=20)
+    currency = serializers.CharField(max_length=10)
+    buying_power = serializers.FloatField()
+    regt_buying_power = serializers.FloatField()
+    daytrading_buying_power = serializers.FloatField()
+    cash = serializers.FloatField()
+    portfolio_value = serializers.FloatField()
+    pattern_day_trader = serializers.BooleanField()
+    trading_blocked = serializers.BooleanField()
+    transfers_blocked = serializers.BooleanField()
+    account_blocked = serializers.BooleanField()
+    created_at = serializers.DateTimeField()
+    trade_suspended_by_user = serializers.BooleanField()
+    multiplier = serializers.IntegerField()
+    shorting_enabled = serializers.BooleanField()
+    equity = serializers.FloatField()
+    last_equity = serializers.FloatField()
+    long_market_value = serializers.FloatField()
+    short_market_value = serializers.FloatField()
+    initial_margin = serializers.FloatField()
+    maintenance_margin = serializers.FloatField()
+    last_maintenance_margin = serializers.FloatField()
+    sma = serializers.FloatField()
+    daytrade_count = serializers.IntegerField()
+
+class PositionSerializer(serializers.Serializer):
+    asset_id = serializers.CharField(max_length=50)
+    symbol = serializers.CharField(max_length=50)
+    exchange = serializers.CharField(max_length=50)
+    asset_class = serializers.CharField(max_length=50)
+    avg_entry_price = serializers.FloatField()
+    qty = serializers.IntegerField()
+    side = serializers.CharField(max_length=30)
+    market_value = serializers.FloatField()
+    cost_basis = serializers.FloatField()
+    unrealized_pl = serializers.FloatField()
+    unrealized_plpc = serializers.FloatField()
+    unrealized_intraday_pl = serializers.FloatField()
+    unrealized_intraday_plpc = serializers.FloatField()
+    current_price = serializers.FloatField()
+    lastday_price = serializers.FloatField()
+    change_today = serializers.FloatField()
+
+class PortfolioHistorySerializer(serializers.Serializer):
+    timestamp = serializers.ListField(child=serializers.IntegerField())
+    equity = serializers.ListField(child=serializers.IntegerField())
+    profit_loss = serializers.ListField(child=serializers.IntegerField())
+    profit_loss_pct = serializers.ListField(child=serializers.IntegerField())
+    base_value = serializers.FloatField()
+    timeframe = serializers.CharField(max_length=20)
+
+class ActivitiesSerializer(serializers.Serializer):
+    pass
+
+class OrderSerializer(serializers.Serializer):
+    id = serializers.CharField(max_length=50)
+    client_order_id = serializers.CharField(max_length=50)
+    created_at = serializers.CharField(max_length=30)
+    updated_at = serializers.CharField(max_length=30)
+    submitted_at = serializers.CharField(max_length=30)
+    filled_at = serializers.CharField(max_length=30)
+    expired_at = serializers.CharField(max_length=30)
+    canceled_at = serializers.CharField(max_length=30)
+    failed_at = serializers.CharField(max_length=30)
+    replaced_at = serializers.CharField(max_length=30)
+    replaced_by = serializers.CharField(max_length=30)
+    replaces = serializers.CharField()
+    asset_id = serializers.CharField(max_length=30)
+    symbol = serializers.CharField(max_length=10)
+    asset_class = serializers.CharField(max_length=30)
+    qty = serializers.IntegerField()
+    filled_qty = serializers.IntegerField()
+    type = serializers.CharField(max_length=10)
+    side = serializers.CharField(max_length=10)
+    time_in_force = serializers.CharField(max_length=10)
+    limit_price = serializers.FloatField()
+    stop_price = serializers.FloatField()
+    filled_avg_price = serializers.FloatField()
+    status = serializers.CharField(max_length=20)
+    extended_hours = serializers.BooleanField()
+    legs = serializers.CharField()
+    trail_price = serializers.FloatField()
+    trail_percent = serializers.CharField()
+    hwm = serializers.FloatField()
+
+class TickerSerializer(serializers.Serializer):
+    average = serializers.FloatField()
+    close = serializers.FloatField()
+    end = serializers.DateTimeField()
+    high = serializers.FloatField()
+    low = serializers.FloatField()
+    open = serializers.FloatField()
+    start = serializers.DateTimeField()
+    symbol = serializers.CharField(max_length=5)
+    timestamp = serializers.DateTimeField()
+    totalvolume = serializers.IntegerField()
+    volume = serializers.IntegerField()
+    vwap = serializers.FloatField()
+
+class ClockSerializer(serializers.Serializer):
+    timestamp = serializers.DateTimeField()
+    is_open = serializers.BooleanField()
+    next_open = serializers.DateTimeField()
+    next_close = serializers.DateTimeField()
+
+class BarsSerializer(serializers.Serializer):
+    timestamp = serializers.DateTimeField()
+    open = serializers.FloatField()
+    high = serializers.FloatField()
+    low = serializers.FloatField()
+    close = serializers.FloatField()
+    volume = serializers.IntegerField()
