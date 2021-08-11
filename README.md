@@ -1,8 +1,14 @@
 ### Overview
+Web app to interact with a paper trading account. Stream live market data.
 Django REST framework. Asynchronous web server. Websocket.
 Consumes Alpaca Trade API for account info, market data, positions, transaction history, etc.
 Streams market data with Django Channels, websocket server, and Alpaca Trade Websocket.
 Django Celery to handle multiple consumer connections.
+
+#### Upcoming Features
+1. Historic Data
+2. Buy/Sell Order, Order Type, Time in Force
+3. Order History
 
 #### Environment Variables
 1. ALPACA_API_KEY
@@ -30,8 +36,3 @@ Django Celery to handle multiple consumer connections.
 |**Portfolio**      | GET /api/portfolio/  | Alpaca portfolio history   |
 |**Activities**     | GET /api/activities/ | Alpaca account activities  |
 |**Market Clock**   | GET /api/clock/      | Market Clock               |
-
-#### TODO
-1. Historic Data
-2. Buy/Sell Order, Order Type, Time in Force
-3. Order History
