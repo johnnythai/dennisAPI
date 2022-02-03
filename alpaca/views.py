@@ -62,6 +62,7 @@ class Orders(APIView):
     """
     def get(self, request, **kwargs):
         """
+        return: list of orders or details of a single order
         """
         orders = alpaca.list_orders()
         order_id = self.request.query_params.get('order_id', None)

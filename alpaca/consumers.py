@@ -16,7 +16,7 @@ class TestConsumer(WebsocketConsumer):
 
     def receive(self, text_data):
         print(text_data)
-        self.send(text_data="this is the consumer")
+        self.send(text_data="Test success!")
 
 class AlpacaConsumer(WebsocketConsumer):
     """
@@ -32,7 +32,6 @@ class AlpacaConsumer(WebsocketConsumer):
     def connect(self):
         """
         Authorize user before accepting connection.
-        TODO:
         """
         user = self.scope['user']
         print(type(user))
@@ -85,8 +84,6 @@ class AlpacaConsumer(WebsocketConsumer):
         self.send(json.dumps({
             'message': {'subscriptions': self.channels}
         }))
-            
-
 
     def client_message(self, event):
         """
@@ -101,6 +98,9 @@ class AlpacaConsumer(WebsocketConsumer):
         """
         Connect to alpaca websocket if self.channels.
         Run lister function as backgroung task.
+
+        :param ws_message: message from receive() method.
+        :type ws_message: str
         """
 
         print('Connecting to websocket...')
@@ -108,8 +108,10 @@ class AlpacaConsumer(WebsocketConsumer):
         
     def receive(self, text_data):
         """
-        Receive message from client.
-        :type channels: str(json)
+        Receive message from client. Calls connect_websocket() method.
+
+        :param text_data: message received from a connected client
+        :type text_data: json
         """
         message = json.loads(text_data)
         print('< (client): ', message)

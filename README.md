@@ -13,6 +13,12 @@ Django Celery to handle multiple consumer connections.
 1. ALPACA_API_KEY
 2. ALPACA_SECRET_KEY
 3. DJANGO_SECRET_KEY
+4. PG_USER
+5. PG_PASSWORD
+
+#### Notes
+1. Uses channels_redis to enable channel layers in Django Channels. Refer to settings.py for configuration.
+2. Consumer connects to dennisWS to enable live streaming of data from alpaca trade API.
 
 #### General
 |                   | Endpoint                    | Result                     |

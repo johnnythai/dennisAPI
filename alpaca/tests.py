@@ -10,10 +10,12 @@ class MyTests(TestCase):
         connected = await communicator.connect()
         assert connected
         print('test case connected to consumer')
+
         # Test sending text
-        await communicator.send_to(text_data='> consumer: this is a test')
+        await communicator.send_to(text_data='> consumer: This message is for the consumer')
         response = await communicator.receive_from()
         print('< consumer: ', response)
         assert response
+
         # Close
         await communicator.disconnect()
