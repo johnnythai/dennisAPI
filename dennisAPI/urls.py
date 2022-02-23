@@ -29,8 +29,8 @@ urlpatterns = [
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('alpaca.urls')),
-    path('api/', include('alpaca.urls')),
+    # path('', include('alpaca.urls')),
+    path('api/alpaca/', include('alpaca.urls')),
     path('api/users/', include(router.urls)),
     path('api/users/create/', users_views.CreateUser.as_view(), name='users_create'),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain'),
