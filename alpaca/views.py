@@ -19,7 +19,7 @@ from rest_framework import request
 from django.http import HttpResponse
 
 alpaca = settings.ALPACA_CONN
-
+ 
 @ensure_csrf_cookie
 @permission_classes([AllowAny])
 def generateCSRF(request):
