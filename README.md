@@ -18,7 +18,7 @@ Django Celery to handle multiple consumer connections.
 
 #### Notes
 1. Uses channels_redis to enable channel layers in Django Channels. Refer to settings.py for configuration.
-'docker run -p 6379:6379 -d redis:5'
+	docker run -p 6379:6379 -d redis:5
 2. Consumer connects to dennisWS to enable live streaming of data from alpaca trade API.
 3. Uses django celery to handle multiple consumers connecting to single instance of alpaca trade websocket.
 4. PostgreSQL
