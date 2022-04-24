@@ -3,6 +3,7 @@ Django REST framework. Asynchronous web server. Websocket.
 Consumes Alpaca Trade API for account info, market data, positions, transaction history, etc.
 Streams market data with Django Channels, websocket server, and Alpaca Trade Websocket.
 Django Celery to handle multiple consumer connections.
+Python 3.9
 
 #### Upcoming Features
 1. Historic Data

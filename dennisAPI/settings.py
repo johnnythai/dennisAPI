@@ -32,7 +32,7 @@ ALPACA_URL = 'https://paper-api.alpaca.markets'
 ALPACA_CONN = api.REST(ALPACA_API_KEY, ALPACA_SECRET_KEY, ALPACA_URL, api_version='v2')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '.johnnythai.dev',
@@ -138,9 +138,9 @@ WSGI_APPLICATION = 'dennisAPI.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dennisAPI',
-        'USER': os.environ.get('PG_USER'),
-        'PASSWORD': os.environ.get('PG_PASSWORD'),
+        'NAME': 'dennis',
+        'USER': os.environ.get('PG_DENNIS_USER'),
+        'PASSWORD': os.environ.get('PG_DENNIS_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '5432'
     }
