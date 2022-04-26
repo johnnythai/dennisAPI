@@ -36,7 +36,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '.johnnythai.dev',
-    'localhost'
+    'localhost',
+    'alpaca.johnnythai.dev'
 ]
 
 
@@ -181,6 +182,7 @@ USE_TZ = True
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "http://localhost:5000",
     "https://johnnythai.dev",
     "https://www.johnnythai.dev",
     "https://alpaca.johnnythai.dev"
